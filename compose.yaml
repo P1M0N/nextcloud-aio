@@ -38,7 +38,7 @@ services:
 
   # # Optional: Caddy reverse proxy. See https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md
   # # You can find further examples here: https://github.com/nextcloud/all-in-one/discussions/588
-    caddy:
+  caddy:
     container_name: caddy
     image: 47874fb526bda69dd09ed6679b2a4f98d8b69610a344d7e4f702f26e04a2de27
     restart: unless-stopped
@@ -53,6 +53,9 @@ services:
 volumes: # If you want to store the data on a different drive, see https://github.com/nextcloud/all-in-one#how-to-store-the-filesinstallation-on-a-separate-drive
   nextcloud_aio_mastercontainer:
     name: nextcloud_aio_mastercontainer # This line is not allowed to be changed as otherwise the built-in backup solution will not work
+  caddy:
+    caddy_data:
+    caddy_config:
 
 # # Optional: If you need ipv6, follow step 1 and 2 of https://github.com/nextcloud/all-in-one/blob/main/docker-ipv6-support.md first and then uncomment the below config in order to activate ipv6 for the internal nextcloud-aio network.
 # # Please make sure to uncomment also the networking lines of the mastercontainer above in order to actually create the network with docker-compose
